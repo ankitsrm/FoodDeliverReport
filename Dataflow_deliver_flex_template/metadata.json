@@ -1,0 +1,14 @@
+{
+  "name": "Dataflow bigquery food deliverable insert.",
+  "description": "Food deliverable repost creation.",
+  "parameters": [
+    {
+      "name": "input",
+      "label": "input file path",
+      "helpText": "input file location for processing batch files.",
+      "regexes": [
+        "^gs:\\/\\/[^\\n\\r]+$"
+      ]
+    }    
+  ]
+}

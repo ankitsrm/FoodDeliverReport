@@ -1,0 +1,100 @@
+gcloud artifacts repositories create dataflowjobs-flex-template \
+    --repository-format=docker --location=asia-south1
+
+
+gcloud dataflow flex-template build gs://df-pipeline-deliver-report/template/df-pipeline-deliver-report-py.json \
+    --image-gcr-path "asia-south1-docker.pkg.dev/bigquery-418908/dataflowjobs-flex-template/df-pipeline-deliver-report-py:latest" \
+    --sdk-language "PYTHON" \
+    --flex-template-base-image "PYTHON3" \
+    --py-path "." \
+    --metadata-file "metadata.json" \
+    --env "FLEX_TEMPLATE_PYTHON_PY_FILE=df_deliver_report.py" \
+    --env "FLEX_TEMPLATE_PYTHON_REQUIREMENTS_FILE=requirements.txt" \
+    --temp-location="gs://df-pipeline-deliver-report/temp" \
+    --staging-location="gs://df-pipeline-deliver-report/staging"
+
+
+gs://df-pipeline-deliver-report/template/df-pipeline-deliver-report-py.json
+
+gcloud dataflow flex-template run "flex-`date +%Y%m%d-%H%M%S`" \
+    --template-file-gcs-location "gs://df-pipeline-deliver-report/template/df-pipeline-deliver-report-py.json" \
+    --region us-east1 \
+    --parameters input=gs://testdf_bucket/sampl.csv
+
+------
+gcloud dataflow flex-template build 
+
+gcloud dataflow flex-template build gs://mybucket_75229/template/df_bigquery_template.json \
+    --image-gcr-path "us-east1-docker.pkg.dev/bigquery-418908/dfbigquerytemp/df_bigquery_template-py:latest" \
+    --sdk-language "PYTHON" \
+    --flex-template-base-image "PYTHON3" \
+    --metadata-file "parameter.json" \
+    --py-path "." \
+    --env "FLEX_TEMPLATE_PYTHON_PY_FILE=df_food_report.py" \
+    --env "FLEX_TEMPLATE_PYTHON_REQUIREMENTS_FILE=requirements.txt" 
+
+df-pipeline-deliver-report/template
+    gcloud dataflow flex-template build gs://df-pipeline-deliver-report/template/df-pipeline-deliver-report-py.json \
+    --image-gcr-path "asia-south1-docker.pkg.dev/bigquery-418908/df-repository/df-pipeline-deliver-report-py:latest" \
+    --sdk-language "PYTHON" \
+    --flex-template-base-image "PYTHON3" \
+    --py-path "." \
+    --metadata-file "metadata.json" \
+    --env "FLEX_TEMPLATE_PYTHON_PY_FILE=getting_started.py" \
+    --env "FLEX_TEMPLATE_PYTHON_REQUIREMENTS_FILE=requirements.txt"
+    --temp-location=gs://df-pipeline-deliver-report/temp
+    --staging-location=gs://df-pipeline-deliver-report/staging
+
+gcloud dataflow flex-template run "flex-`date +%Y%m%d-%H%M%S`" \
+    --template-file-gcs-location "gs://testdf_bucket/getting_started_py.json" \
+    --region us-central1 \
+    --parameters "input=gs://central_input_csv/sampl.csv,bqcredjsonfile=gs://testdf_bucket/bigquery-cred.json,bqdatasetId=bigquery-418908:dataset_py.deliveroder"
+    --parameters bqdatasetId="bigquery-418908.dataset_py"
+    --parameters bqcredjsonfile="gs://testdf_bucket/bigquery-cred.json"
+
+
+python3 df_food_report.py --runner DataflowRunner --project bigquery-418908 --staging_location gs://mybucket_75229 --template_location gs://mybucket_75229/pipeline --temp_location gs://mybucket_75229/temp --region us-east1 --setup_file ./setup.py
+
+
+ git config --global user.email "ankit.utkarsh@hotmail.com"
+  git config --global user.name "ankit utkarsh"
+
+
+--staging_location gs://mybucket_75229 --template_location gs://mybucket_75229/temp --region us-east1
+gcloud logging read "resource.type=dataflow_step AND severity>=ERROR" --project=bigquery-418908 --freshness=1h --max-results=1000
+
+
+
+gcloud dataflow flex-template build 
+
+gcloud dataflow flex-template run "flex" \
+    --template-file-gcs-location "gs://mybucket_75229/template/df_bigquery_template.json" \
+    --region "us-central1" \
+    --parameters input="gs://food_deliver_event/sampl.csv" \
+    --temp-location="gs://mybucket_75229/temp" \
+    --staging-location="gs://mybucket_7522" \
+    --service-account-email="biqg-75229@bigquery-418908.iam.gserviceaccount.com"
+
+
+
+
+
+
+
+
+
+
+
+    gcloud auth print-access-token --impersonate-service-account a41604827@gmail.com --quiet
+t-access-token) Failed to impersonate [a41604827@gmail.com]. Make sure the account that's trying to impersonate it has access to the service account itself and the "roles/iam.serviceAccountTokenCreator" role.
+Error: Cannot perform an interactive login from a non TTY device
+
+docker login -u oauth2accesstoken --password-stdin https://us-east1-docker.pkg.dev <<< $(gcloud auth print-access-token --impersonate-service-account a41604827@gmail.com --quiet)
+
+gsutil iam ch group:serviceAccount:a41604827@gmail.com:roles/storage.objectCreator gs://your-bucket-name
+
+
+gcloud dataflow flex-template run "flex-'date + %Y%m%d-%H%M%S'" \
+    --template-file-gcs-location "gs://testdf_bucket/df.json" \
+    --region "us-east1" \
+    --parameters input="gs://food_deliver_event/sampl.csv"

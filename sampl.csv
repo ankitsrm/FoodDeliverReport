@@ -1,0 +1,15 @@
+﻿Customer_id,date,time,order_id,items,amount,mode,restaurnt,Status,ratings,feedback
+OXJY167254JK,11-11-2020,8:11:21,854A854,Chow M?ein:,65,Cash,Sadabahar,Delivered,5,Awesome experience
+JXJY167254JK,11-11-2020,8:12:20,654S654,PiZza:Manch?uriaN:CHOW Mein:Crispy Onion Rings,197,Wallet,Emperial,Delivered,2,Late delivery
+JXJY167254JK,11-11-2020,8:12:21,2444454,Noodles:Pizza:ROTI,97,Card,Sadabahar,Delivered,3,Stale food
+XVTR474839TP,11-11-2020,8:12:22,397T397,Fried Rice:salaD,46,Card,Emperial,Not Delivered,3,Complicated procedure
+UFDF355524DM,11-11-2020,8:12:23,428K428,noo%dles:,71,Card,Delhi pot,Delivered,1,Food not good
+FRBT691245BA,11-11-2020,8:12:24,437M437,Laccha Prantha:,29,Online,Eat out,Delivered,1,Stale food
+QTSI285174SG,11-11-2020,8:12:25,106S106,Fried Rice:,59,Cash,Toit,Delivered,2,Complicated procedure
+SAMV824387MW,11-11-2020,8:12:26,751C751,Quiche:,28,Wallet,Khana Khazana,Delivered,1,Difficult to order
+JXJY167254JK,11-11-2020,8:12:27,5589654,Quiche:Crispy Onion Rings:Roti,87,Card,Johnahs,Delivered,2,Late delivery
+JXJY167254JK,11-11-2020,8:12:28,8548654,Noodles:Pizza:Roti,97,Card,Onesta,Cancelled,1,Stale food
+JXJY167254JK,11-11-2020,8:12:29,954S654,Fryams:Manchurian:Chow Mein,77,Wallet,Johnahs,Delivered,3,Late delivery
+JXJY167254JK,11-11-2020,8:12:30,154S644,Quiche:Noodles:Roti,123,Card,Eat out,On Hold,4,Will order again
+LRKI603654KL,11-11-2020,8:12:31,742G742,Roti:,86,Card,Little Cafe,Delivered,1,Difficult to order
+FRBT691245BA,11-11-2020,8:12:32,103Y103,Manchurian:,94,Online,Plan B,Delivered,1,Late delivery
